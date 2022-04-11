@@ -10,7 +10,8 @@ from utils.model_util import norm_col_init, weights_init
 from .model_io import ModelOutput
 from .transformer import Transformer, TransformerEncoderLayer, TransformerEncoder, TransformerDecoderLayer, \
     TransformerDecoder
-from .visualtransformermodel import VisualTransformer, get_gloabal_pos_embedding
+# from .visualtransformermodel import VisualTransformer, get_gloabal_pos_embedding
+from .vtnetmodel import VisualTransformer, get_gloabal_pos_embedding
 
 
 class PreTrainedVisualTransformer(nn.Module):
