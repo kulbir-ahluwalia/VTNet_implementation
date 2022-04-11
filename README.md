@@ -18,6 +18,7 @@ conda install -c anaconda scikit-learn
 pip install opencv-python
 pip install urllib3
 
+pip install -U torch #??
 
 ```
 Delete pytorch from requirements.txt.
