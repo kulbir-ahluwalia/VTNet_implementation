@@ -19,6 +19,7 @@ pip install opencv-python
 pip install urllib3
 
 pip install -U torch #??
+pip install --upgrade protobuf
 
 ```
 Delete pytorch from requirements.txt.
