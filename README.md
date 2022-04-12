@@ -81,6 +81,28 @@ def force_cudnn_initialization():
 
 ```
 
+## Error 3
+Error: Path or directory not found
+Solution: change the path to your training datasets and change the paths which are valid for your setup.
+For example in offline_controller_with_small_rotation.py:
+```
+offline_data_dir='/ssd2/CS444_project/AI2Thor_offline_data_2.0.2',
+```
+
+Also, in full_eval.py:
+```
+args.data_dir = os.path.expanduser('/ssd2/CS444_project/AI2Thor_offline_data_2.0.2/')
+```
+
+In main.py:
+```
+args.data_dir = os.path.expanduser('/ssd2/CS444_project/AI2Thor_offline_data_2.0.2/')
+```
+
+## Error 4
+Error: CUDA out of memory in training
+Solution: Use the argument
+
 
 ## Citation
 
