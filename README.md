@@ -42,9 +42,18 @@ python main_pretraining.py --gpu-ids 0 --workers 4 --model PreTrainedVisualTrans
 ```
 
 The training dataset could be downloaded [here](https://drive.google.com/file/d/1kvYvutjqc6SLEO65yQjo8AuU85voT5sC/view?usp=sharing) and the link of DETR features is [here](https://drive.google.com/file/d/1d761VxrwctupzOat4qxsLCm5ndC4wA-M/view?usp=sharing).
+
+
 ### A3C training 
 ```python
 python main.py --gpu-ids 0 --workers 4 --model VTNetModel --detr --title a3c_vtnet --work-dir ./work_dirs/
+```
+
+For the local setup using RTX 3060:
+
+```
+python main.py --gpu-ids 0 --workers 1 --model VTNetModel --detr --title a3c_vtnet --work-dir ./work_dirs/ --pretrained-trans /ssd2/VTNet_implementation/vtnet_pretrained_checkpoint.pth --batch-size 64 --ep-save-freq 10000 --epochs 20
+
 ```
 
 
@@ -53,6 +62,14 @@ python main.py --gpu-ids 0 --workers 4 --model VTNetModel --detr --title a3c_vtn
 
 ```python
 python full_eval.py --gpu-ids 0 --detr --save-model-dir {SAVE_MODEL_DIR} --results-json ./result.json --model VTNetModel --title a3c_previstrans_base
+```
+
+For local setup on RTX 3060:
+
+We have to mention the {path to the saved model directory} and the path where we want the result.json to be saved.
+```
+python full_eval.py --gpu-ids 0 --detr --save-model-dir /ssd2/VTNet_implementation/work_dirs/a3c_vtnet_train_2022-04-12_13-11-25/trained_models/  --results-json /ssd2/VTNet_implementation/work_dirs/a3c_vtnet_train_2022-04-12_13-11-25/trained_models/result.json --model VTNetModel --title a3c_vtnet --batch-size 1
+
 ```
 
 
@@ -119,6 +136,16 @@ USe the argument: --ep-save-freq 10000
  python main.py --gpu-ids 0 --workers 1 --model VTNetModel --detr --title a3c_vtnet --work-dir ./work_dirs/ --pretrained-trans /ssd2/VTNet_implementation/vtnet_pretrained_checkpoint.pth --batch-size 64 --ep-save-freq 10000 --epochs 20
 
 ```
+
+# Using the campus cluster
+
+## Using SSH
+We use the following format to login to the head node:
+```
+ssh -X -l netid cc-login.campuscluster.illinois.edu   
+```
+
+
 
 ## Citation
 
