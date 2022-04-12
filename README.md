@@ -56,6 +56,20 @@ python full_eval.py --gpu-ids 0 --detr --save-model-dir {SAVE_MODEL_DIR} --resul
 ```
 
 
+# Errors and their solutions for local setup using RTX 3060
+
+## Error 1
+Error: RuntimeError: cuda runtime error (3) : initialization error at /opt/conda/conda-bld/pytorch_1544174967633/work/aten/src/THC/THCGeneral.cpp:51
+Solution: https://github.com/pyg-team/pytorch_geometric/issues/131 
+
+Add the following:
+```
+if __name__ == '__main__':
+    torch.multiprocessing.set_start_method('spawn')
+    main()
+```
+
+
 ## Citation
 
 If you find our work useful in your research, please consider citing:
