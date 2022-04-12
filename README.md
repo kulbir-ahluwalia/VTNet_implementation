@@ -101,8 +101,24 @@ args.data_dir = os.path.expanduser('/ssd2/CS444_project/AI2Thor_offline_data_2.0
 
 ## Error 4
 Error: CUDA out of memory in training
-Solution: Use the argument
+Solutions: 
+1. Use --workers 1 #and not --workers 4
+2. Use --batch-size 64 or --batch-size 32
 
+```
+python main.py --gpu-ids 0 --workers 1 --model VTNetModel --detr --title a3c_vtnet --work-dir ./work_dirs/ --pretrained-trans /ssd2/VTNet_implementation/vtnet_pretrained_checkpoint.pth --batch-size 64 --epochs 20
+
+```
+
+## Error 5
+Error: Disk out of space
+Solution: Save the model weights after 10,000 episodes only
+USe the argument: --ep-save-freq 10000
+
+```
+ python main.py --gpu-ids 0 --workers 1 --model VTNetModel --detr --title a3c_vtnet --work-dir ./work_dirs/ --pretrained-trans /ssd2/VTNet_implementation/vtnet_pretrained_checkpoint.pth --batch-size 64 --ep-save-freq 10000 --epochs 20
+
+```
 
 ## Citation
 
