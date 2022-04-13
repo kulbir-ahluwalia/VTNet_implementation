@@ -392,7 +392,8 @@ def parse_arguments():
     parser.add_argument(
         '--batch-size',
         type=int,
-        default=128,
+        # default=128,
+        default=16,
     )
 
     parser.add_argument(
@@ -404,7 +405,7 @@ def parse_arguments():
     parser.add_argument(
         '--epochs',
         type=int,
-        default=100,
+        default=10,
     )
 
     parser.add_argument(

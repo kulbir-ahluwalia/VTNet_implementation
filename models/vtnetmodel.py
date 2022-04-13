@@ -223,7 +223,9 @@ def get_gloabal_pos_embedding(size_feature_map, c_pos_embedding):
     x_embed = mask.cumsum(2, dtype=torch.float32)
 
     dim_t = torch.arange(c_pos_embedding, dtype=torch.float32)
-    dim_t = 10000 ** (2 * (dim_t // 2) / c_pos_embedding)
+    floor_division = torch.div(dim_t, 2, rounding_mode='floor')
+    # dim_t = 10000 ** (2 * (dim_t // 2) / c_pos_embedding)
+    dim_t = 10000 ** (2 * (floor_division) / c_pos_embedding)
 
     pos_x = x_embed[:, :, :, None] / dim_t
     pos_y = y_embed[:, :, :, None] / dim_t
