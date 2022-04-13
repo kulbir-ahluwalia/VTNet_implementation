@@ -2,7 +2,7 @@ from __future__ import print_function, division
 import os
 import json
 import time
-
+import torch
 from utils import command_parser
 from utils.class_finder import model_class, agent_class
 from main_eval import main_eval
@@ -22,7 +22,10 @@ def full_eval(args=None, train_dir=None):
     args.episode_type = 'TestValEpisode'
     args.test_or_val = 'val'
 
-    args.data_dir = os.path.expanduser('~/Data/AI2Thor_offline_data_2.0.2/')
+    # args.data_dir = os.path.expanduser('~/Data/AI2Thor_offline_data_2.0.2/')
+    args.data_dir = os.path.expanduser('/ssd2/CS444_project/AI2Thor_offline_data_2.0.2/')
+
+
 
     if args.detection_feature_file_name is None:
         args.detection_feature_file_name = '{}_features_{}cls.hdf5'.format(args.detection_alg, args.num_category)
@@ -102,5 +105,15 @@ def full_eval(args=None, train_dir=None):
     print("Best model:", args.load_model)
 
 
+def force_cudnn_initialization():
+    s = 32
+    dev = torch.device('cuda')
+    torch.nn.functional.conv2d(torch.zeros(s, s, s, s, device=dev), torch.zeros(s, s, s, s, device=dev))
+
+
+
+
 if __name__ == "__main__":
+    torch.multiprocessing.set_start_method('spawn')
+    force_cudnn_initialization()
     full_eval()

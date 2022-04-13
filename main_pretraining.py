@@ -30,7 +30,10 @@ def main():
         args.title = 'pretrain_vistrans'
     if args.model == 'BaseModel':
         args.model = 'PreTrainedVisualTransformer'
-    args.data_dir = os.path.expanduser('~/Data/AI2Thor_VisTrans_Pretrain_Data/')
+    # args.data_dir = os.path.expanduser('~/Data/AI2Thor_VisTrans_Pretrain_Data/')
+
+    args.data_dir = os.path.expanduser('/ssd2/CS444_project/AI2Thor_VisTrans_Pretrain_Data/')
+
 
     print(args)
 

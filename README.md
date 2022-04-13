@@ -5,9 +5,10 @@ Make the conda environment:
 conda create --name VTNet_test_env  python=3.6 
 conda activate VTNet_test_env  
 
-#install pytorch and other required packages
 conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia    
 conda install -c conda-forge ipywidgets
+
+
 conda install ipykernel
 conda install ipywidgets
 python3 -m pip install --upgrade --user urllib3==1.25.9
@@ -17,22 +18,15 @@ conda install -c anaconda scikit-learn
 pip install opencv-python
 pip install urllib3
 
-#the following command resolves some errors
 pip install -U torch #??
 pip install --upgrade protobuf
 
 ```
-Delete pytorch==1.4.0 from requirements.txt because the RTX 3060 on Ubuntu 18 needs the following in requirements.txt:
-```
-torch==1.10.2
-torchvision==0.11.2
-torchaudio==0.10.2+cu113
-tensorboardX==2.5.0
-```
+Delete pytorch from requirements.txt.
 
 
 ## Installation
-The code is tested with Ubuntu18.04 and CUDA10.2 on the campus cluster. For the RTX 3060 local setup used for fast development, we have cudatoolkit      11.1.74.
+The code is tested with Ubuntu18.04 and CUDA10.2.
 ```
 pip install -r requirements.txt
 ```

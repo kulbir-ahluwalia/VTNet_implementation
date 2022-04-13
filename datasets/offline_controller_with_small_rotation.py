@@ -539,8 +539,10 @@ class OfflineControllerWithSmallRotation(BaseController):
             self,
             grid_size=0.25,
             fov=100,
-            offline_data_dir='/home/dhm/Data/AI2Thor_offline_data_2.0.2',
+            # offline_data_dir='/home/dhm/Data/AI2Thor_offline_data_2.0.2',
+            offline_data_dir='/ssd2/CS444_project/AI2Thor_offline_data_2.0.2',
             detection_feature_file_name='det_feature.hdf5',
+
             grid_file_name='grid.json',
             graph_file_name='graph.json',
             metadata_file_name='visible_object_map.json',
