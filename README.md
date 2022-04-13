@@ -151,10 +151,11 @@ Warning:
 
 ```
 Solution:
+Update the following lines in vtnetmodel.py:
 ```
 floor_division = torch.div(dim_t, 2, rounding_mode='floor')
-    # dim_t = 10000 ** (2 * (dim_t // 2) / c_pos_embedding)
-    dim_t = 10000 ** (2 * (floor_division) / c_pos_embedding)
+# dim_t = 10000 ** (2 * (dim_t // 2) / c_pos_embedding)
+dim_t = 10000 ** (2 * (floor_division) / c_pos_embedding)
 ```
     
 # Using the campus cluster
