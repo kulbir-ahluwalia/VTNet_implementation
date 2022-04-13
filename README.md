@@ -165,7 +165,10 @@ We use the following format to login to the head node:
 ```
 ssh -X -l netid cc-login.campuscluster.illinois.edu   
 ```
-
+Submit the job on the campus cluster using the following command:
+```
+qsub campus_cluster_script.pbs
+```
 
 
 ## Citation
