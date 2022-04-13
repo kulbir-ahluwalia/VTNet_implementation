@@ -143,6 +143,20 @@ USe the argument: --ep-save-freq 10000
 
 ```
 
+## Error 6
+Warning: 
+```
+/ssd2/VTNet_implementation/models/vtnetmodel.py:226: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  dim_t = 10000 ** (2 * (dim_t // 2) / c_pos_embedding)
+
+```
+Solution:
+```
+floor_division = torch.div(dim_t, 2, rounding_mode='floor')
+    # dim_t = 10000 ** (2 * (dim_t // 2) / c_pos_embedding)
+    dim_t = 10000 ** (2 * (floor_division) / c_pos_embedding)
+```
+    
 # Using the campus cluster
 
 ## Using SSH
