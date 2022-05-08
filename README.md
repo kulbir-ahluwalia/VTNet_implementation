@@ -8,14 +8,12 @@ conda activate VTNet_test_env
 #install pytorch and other required packages
 conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia    
 conda install -c conda-forge ipywidgets
-conda install ipykernel
-conda install ipywidgets
+conda install ipykernel ipywidgets matplotlib 
+
 python3 -m pip install --upgrade --user urllib3==1.25.9
-python3 -m pip install --upgrade --user pillow==6.2.0
-conda install matplotlib   
+python3 -m pip install --upgrade --user pillow==6.2.0 
 conda install -c anaconda scikit-learn
-pip install opencv-python
-pip install urllib3
+pip install opencv-python urllib3 
 
 #the following command resolves some errors
 pip install -U torch #??
