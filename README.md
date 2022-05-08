@@ -119,7 +119,8 @@ Change the file paths in full_eval.py, main.py and main_pretraining.py
 ```
 git checkout UIUC_campus_cluster_VTNet
 ```
-## Setup conda environment and ~/.bashrc
+
+## Using vim
 Using vim:
 ```
 i: to enter insert mode
@@ -139,7 +140,9 @@ module load anaconda/2019-Oct/3
 conda activate VTNet_test_env
 
 ```
-After saving .bashrc, do: ```source ~/.bashrc```
+After saving .bashrc, do: ```source ~/.bashrc```.
+
+## Setup conda environment and ~/.bashrc
 
 
 
