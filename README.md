@@ -88,7 +88,7 @@ scp /ssd2/VTNet_implementation/AI2Thor_offline_data_2.0.2_detr_features.tar.gz k
 scp /ssd2/VTNet_implementation/AI2Thor_VisTrans_Pretrain_Data.tar.gz ksa5@cc-login.campuscluster.illinois.edu:/home/ksa5/scratch/VTNet_data 
 ```
 Extract the files:
--x = extract, -v = display the extracted file in terminal
+-x = extract, -v = display the extracted file in terminal, Use the --directory (-C) to extract archive files in a specific directory
 ```
 tar -xvf AI2Thor_VisTrans_Pretrain_Data.tar.gz -C ~/scratch/VTNet_data/
 tar -xf AI2Thor_offline_data_2.0.2.tar.gz -C ~/scratch/VTNet_data/
