@@ -113,6 +113,18 @@ Change the file paths in full_eval.py, main.py and main_pretraining.py
 ```
 
 
+
+# LOCAL SETUP on RTX 3060
+## Changing the file paths
+Change the file paths in full_eval.py, main.py and main_pretraining.py
+```
+    args.data_dir = os.path.expanduser('/ssd2/CS444_project/AI2Thor_offline_data_2.0.2/')
+    args.data_dir = os.path.expanduser('/ssd2/CS444_project/AI2Thor_offline_data_2.0.2/')
+    args.data_dir = os.path.expanduser('/ssd2/CS444_project/AI2Thor_VisTrans_Pretrain_Data/')
+
+
+```
+
 # Errors and their solutions for local setup using RTX 3060
 
 ## Error 1
