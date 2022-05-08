@@ -4,11 +4,11 @@
 #PBS -l walltime=12:00:00
 #PBS -l nodes=1
 #PBS -m a
-#PBS -q eng-instruction
+#PBS -q eng-research-gpu
 #SBATCH --gres gpu:P100
 
-ROOT_DIR=/projects/kani-lab/user/gangwar2
-PROJ_DIR=cs-444/ICLR_VTNet
+ROOT_DIR=/home/ksa5
+PROJ_DIR=VTNet_implementation
 
 # python $ROOT_DIR/$PROJ_DIR/main_pretraining.py --gpu-ids 0 --workers 32 --model PreTrainedVisualTransformer --detr --title a3c --work-dir $ROOT_DIR/$PROJ_DIR/work_dirs/ --load-model $ROOT_DIR/$PROJ_DIR/work_dirs/pretrain_vistrans_train_2022-04-09_00-18-11/trained_models/checkpoint.pth
 
