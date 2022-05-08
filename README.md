@@ -84,7 +84,12 @@ tar -xvf /media/kulbir/SSD_storage/CS444_project_ssd/AI2Thor_offline_data_2.0.2_
 tar -xvf /media/kulbir/SSD_storage/CS444_project_ssd/AI2Thor_VisTrans_Pretrain_Data.tar.gz -C /ssd2/CS444_project 
 ```
 
-# Remote setup on UIUC Campus Cluster
+
+
+
+
+
+# REMOTE SETUP ON UIUC CAMPUS CLUSTER
 Transfer the files from your local computer to the campus cluster scratch directory using scp:
 ```
 scp /ssd2/VTNet_implementation/AI2Thor_offline_data_2.0.2.tar.gz ksa5@cc-login.campuscluster.illinois.edu:/home/ksa5/scratch/VTNet_data 
@@ -108,9 +113,35 @@ Change the file paths in full_eval.py, main.py and main_pretraining.py
     args.data_dir = os.path.expanduser('/home/ksa5/scratch/VTNet_data/AI2Thor_offline_data_2.0.2/')
     args.data_dir = os.path.expanduser('/home/ksa5/scratch/VTNet_data/AI2Thor_offline_data_2.0.2/')
     args.data_dir = os.path.expanduser('/home/ksa5/scratch/VTNet_data/AI2Thor_VisTrans_Pretrain_Data/')
+```
 
+## Switch to UIUC_campus_cluster_VTNet branch
+```
+git checkout UIUC_campus_cluster_VTNet
+```
+## Setup conda environment and ~/.bashrc
+Using vim:
+```
+i: to enter insert mode
+:w ==> to write(save) but not exit
+:q ==> to quit(exit)
+:wq ==> to write and quit
+ESC ==> to escape insert mdoe
+```
+Change your ~/.bashrc file and include the following and then save it:
+```
+module load python/3
+
+export PYTHONPATH=/home/$USER/scratch/mypython3:${PYTHONPATH}
+
+module load anaconda/2019-Oct/3
+
+conda activate VTNet_test_env
 
 ```
+After saving .bashrc, do: ```source ~/.bashrc```
+
+
 
 
 
