@@ -102,6 +102,16 @@ tar -xvf AI2Thor_offline_data_2.0.2_detr_features.tar.gz -C ~/scratch/VTNet_data
 
 ```
 
+## Changing the file paths
+Change the file paths in full_eval.py, main.py and main_pretraining.py
+```
+    args.data_dir = os.path.expanduser('/home/ksa5/scratch/VTNet_data/AI2Thor_offline_data_2.0.2/')
+    args.data_dir = os.path.expanduser('/home/ksa5/scratch/VTNet_data/AI2Thor_offline_data_2.0.2/')
+    args.data_dir = os.path.expanduser('/home/ksa5/scratch/VTNet_data/AI2Thor_VisTrans_Pretrain_Data/')
+
+
+```
+
 
 # Errors and their solutions for local setup using RTX 3060
 
