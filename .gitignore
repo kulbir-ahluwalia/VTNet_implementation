@@ -1,0 +1,8 @@
+AI2Thor_offline_data_2.0.2.tar.gz
+AI2Thor_offline_data_2.0.2_detr_features.tar.gz
+AI2Thor_VisTrans_Pretrain_Data.tar.gz
+
+./work_dirs/*
+
+vtnet_pretrained_checkpoint.pth
+*.pth
