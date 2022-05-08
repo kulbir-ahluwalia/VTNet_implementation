@@ -9,6 +9,8 @@ conda activate VTNet_test_env
 conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia    
 conda install -c conda-forge ipywidgets
 conda install ipykernel ipywidgets matplotlib 
+conda install -c conda-forge setproctitle
+
 
 python3 -m pip install --upgrade --user urllib3==1.25.9
 python3 -m pip install --upgrade --user pillow==6.2.0 
