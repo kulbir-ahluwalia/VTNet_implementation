@@ -10,6 +10,9 @@ conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvid
 conda install -c conda-forge ipywidgets
 conda install ipykernel ipywidgets matplotlib 
 conda install -c conda-forge setproctitle
+conda install -c anaconda numpy
+
+
 
 
 python3 -m pip install --upgrade --user urllib3==1.25.9
