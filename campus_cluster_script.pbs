@@ -1,11 +1,11 @@
 #!/bin/sh
-#PBS -M gangwar2@illinois.edu
+#PBS -M ksa5@illinois.edu
 #PBS -N vtnet_eval
 #PBS -l walltime=12:00:00
 #PBS -l nodes=1
 #PBS -m a
 #PBS -q eng-research-gpu
-#SBATCH --gres gpu:P100
+#SBATCH --gres gpu:V100
 
 ROOT_DIR=/home/ksa5
 PROJ_DIR=VTNet_implementation
