@@ -78,6 +78,15 @@ python full_eval.py --gpu-ids 0 --detr --save-model-dir /ssd2/VTNet_implementati
 
 ```
 
+# Remote setup on UIUC Campus Cluster
+Transfer the files from your local computer to the campus cluster scratch directory using scp:
+```
+scp /ssd2/VTNet_implementation/AI2Thor_offline_data_2.0.2.tar.gz ksa5@cc-login.campuscluster.illinois.edu:/home/ksa5/scratch/VTNet_data 
+
+scp /ssd2/VTNet_implementation/AI2Thor_offline_data_2.0.2_detr_features.tar.gz ksa5@cc-login.campuscluster.illinois.edu:/home/ksa5/scratch/VTNet_data 
+
+scp /ssd2/VTNet_implementation/AI2Thor_VisTrans_Pretrain_Data.tar.gz ksa5@cc-login.campuscluster.illinois.edu:/home/ksa5/scratch/VTNet_data 
+```
 
 # Errors and their solutions for local setup using RTX 3060
 
