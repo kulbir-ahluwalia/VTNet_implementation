@@ -77,6 +77,12 @@ We have to mention the {path to the saved model directory} and the path where we
 python full_eval.py --gpu-ids 0 --detr --save-model-dir /ssd2/VTNet_implementation/work_dirs/a3c_vtnet_train_2022-04-12_13-11-25/trained_models/  --results-json /ssd2/VTNet_implementation/work_dirs/a3c_vtnet_train_2022-04-12_13-11-25/trained_models/result.json --model VTNetModel --title a3c_vtnet --batch-size 1
 
 ```
+Since the dataset is about 80GB in size, it is recommended to download it on a external storage disk and then extract it on local machine using CLI. GUI hangs most of the time due to the sheer size of the dataset and you can get "no space left on device error" even if there is space left.
+```
+tar -xvf /media/kulbir/SSD_storage/CS444_project_ssd/AI2Thor_offline_data_2.0.2.tar.gz -C /ssd2/CS444_project
+tar -xvf /media/kulbir/SSD_storage/CS444_project_ssd/AI2Thor_offline_data_2.0.2_detr_features.tar.gz -C /ssd2/CS444_project 
+tar -xvf /media/kulbir/SSD_storage/CS444_project_ssd/AI2Thor_VisTrans_Pretrain_Data.tar.gz -C /ssd2/CS444_project 
+```
 
 # Remote setup on UIUC Campus Cluster
 Transfer the files from your local computer to the campus cluster scratch directory using scp:
