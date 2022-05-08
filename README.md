@@ -95,6 +95,10 @@ scp /ssd2/VTNet_implementation/AI2Thor_offline_data_2.0.2.tar.gz ksa5@cc-login.c
 scp /ssd2/VTNet_implementation/AI2Thor_offline_data_2.0.2_detr_features.tar.gz ksa5@cc-login.campuscluster.illinois.edu:/home/ksa5/scratch/VTNet_data 
 
 scp /ssd2/VTNet_implementation/AI2Thor_VisTrans_Pretrain_Data.tar.gz ksa5@cc-login.campuscluster.illinois.edu:/home/ksa5/scratch/VTNet_data 
+
+#transfer the pretrained weights file to remote repo on cluster:
+scp /ssd2/VTNet_implementation/vtnet_pretrained_checkpoint.pth ksa5@cc-login.campuscluster.illinois.edu:/home/ksa5/VTNet_implementation
+
 ```
 Extract the files:
 -x = extract, -v = display the extracted file in terminal, Use the --directory (-C) to extract archive files in a specific directory
