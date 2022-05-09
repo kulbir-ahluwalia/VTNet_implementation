@@ -64,8 +64,14 @@ For the local setup using RTX 3060:
 
 ```
 python main.py --gpu-ids 0 --workers 1 --model VTNetModel --detr --title a3c_vtnet --work-dir ./work_dirs/ --pretrained-trans /ssd2/VTNet_implementation/vtnet_pretrained_checkpoint.pth --batch-size 64 --ep-save-freq 10000 --epochs 20
+```
+You can also set the number of episodes to train the A3C for using ```--max-ep``` argument:
 
 ```
+python main.py --gpu-ids 0 --workers 1 --model VTNetModel --detr --title a3c_vtnet --work-dir ./work_dirs/ --pretrained-trans /ssd2/VTNet_implementation/vtnet_pretrained_checkpoint.pth --batch-size 64 --ep-save-freq 100 --epochs 1 --max-ep 1000  
+```
+
+
 
 
 
