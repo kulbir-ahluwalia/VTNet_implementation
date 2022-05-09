@@ -71,6 +71,22 @@ You can also set the number of episodes to train the A3C for using ```--max-ep``
 python main.py --gpu-ids 0 --workers 1 --model VTNetModel --detr --title a3c_vtnet --work-dir ./work_dirs/ --pretrained-trans /ssd2/VTNet_implementation/vtnet_pretrained_checkpoint.pth --batch-size 64 --ep-save-freq 100 --epochs 1 --max-ep 1000  
 ```
 
+Cut the following line 95 and paste it before main() in main.py:
+```
+mp.set_start_method("spawn")
+```
+This is to avoid the error: 
+```
+Traceback (most recent call last):
+  File "main.py", line 248, in <module>
+    main()
+  File "main.py", line 95, in main
+    mp.set_start_method("spawn")
+  File "/home/kulbir/anaconda3/envs/vtnet_new_env/lib/python3.6/multiprocessing/context.py", line 242, in set_start_method
+    raise RuntimeError('context has already been set')
+RuntimeError: context has already been set
+
+```
 
 
 
