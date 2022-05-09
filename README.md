@@ -18,6 +18,8 @@ conda install -c anaconda numpy -y
 python3 -m pip install --upgrade --user urllib3==1.25.9
 python3 -m pip install --upgrade --user pillow==6.2.0 
 conda install -c anaconda scikit-learn -y
+conda install scikit-learn-intelex -y
+
 pip install opencv-python urllib3 
 
 #the following command resolves some errors
