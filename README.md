@@ -8,14 +8,12 @@ conda activate VTNet_test_env
 #install pytorch and other required packages
 conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia    
 conda install -c conda-forge ipywidgets
-conda install ipykernel
-conda install ipywidgets
+conda install ipykernel ipywidgets matplotlib 
+
 python3 -m pip install --upgrade --user urllib3==1.25.9
-python3 -m pip install --upgrade --user pillow==6.2.0
-conda install matplotlib   
+python3 -m pip install --upgrade --user pillow==6.2.0 
 conda install -c anaconda scikit-learn
-pip install opencv-python
-pip install urllib3
+pip install opencv-python urllib3 
 
 #the following command resolves some errors
 pip install -U torch #??
@@ -77,8 +75,19 @@ We have to mention the {path to the saved model directory} and the path where we
 python full_eval.py --gpu-ids 0 --detr --save-model-dir /ssd2/VTNet_implementation/work_dirs/a3c_vtnet_train_2022-04-12_13-11-25/trained_models/  --results-json /ssd2/VTNet_implementation/work_dirs/a3c_vtnet_train_2022-04-12_13-11-25/trained_models/result.json --model VTNetModel --title a3c_vtnet --batch-size 1
 
 ```
+Since the dataset is about 80GB in size, it is recommended to download it on a external storage disk and then extract it on local machine using CLI. GUI hangs most of the time due to the sheer size of the dataset and you can get "no space left on device error" even if there is space left.
+```
+tar -xvf /media/kulbir/SSD_storage/CS444_project_ssd/AI2Thor_offline_data_2.0.2.tar.gz -C /ssd2/CS444_project
+tar -xvf /media/kulbir/SSD_storage/CS444_project_ssd/AI2Thor_offline_data_2.0.2_detr_features.tar.gz -C /ssd2/CS444_project 
+tar -xvf /media/kulbir/SSD_storage/CS444_project_ssd/AI2Thor_VisTrans_Pretrain_Data.tar.gz -C /ssd2/CS444_project 
+```
 
-# Remote setup on UIUC Campus Cluster
+
+
+
+
+
+# REMOTE SETUP ON UIUC CAMPUS CLUSTER
 Transfer the files from your local computer to the campus cluster scratch directory using scp:
 ```
 scp /ssd2/VTNet_implementation/AI2Thor_offline_data_2.0.2.tar.gz ksa5@cc-login.campuscluster.illinois.edu:/home/ksa5/scratch/VTNet_data 
@@ -96,6 +105,57 @@ tar -xvf AI2Thor_offline_data_2.0.2_detr_features.tar.gz -C ~/scratch/VTNet_data
 
 ```
 
+## Changing the file paths
+Change the file paths in full_eval.py, main.py and main_pretraining.py
+```
+    args.data_dir = os.path.expanduser('/home/ksa5/scratch/VTNet_data/AI2Thor_offline_data_2.0.2/')
+    args.data_dir = os.path.expanduser('/home/ksa5/scratch/VTNet_data/AI2Thor_offline_data_2.0.2/')
+    args.data_dir = os.path.expanduser('/home/ksa5/scratch/VTNet_data/AI2Thor_VisTrans_Pretrain_Data/')
+```
+
+## Switch to UIUC_campus_cluster_VTNet branch
+```
+git checkout UIUC_campus_cluster_VTNet
+```
+
+## Using vim
+Using vim:
+```
+i: to enter insert mode
+:w ==> to write(save) but not exit
+:q ==> to quit(exit)
+:wq ==> to write and quit
+ESC ==> to escape insert mdoe
+```
+Change your ~/.bashrc file and include the following and then save it:
+```
+module load python/3
+
+export PYTHONPATH=/home/$USER/scratch/mypython3:${PYTHONPATH}
+
+module load anaconda/2019-Oct/3
+
+conda activate VTNet_test_env
+
+```
+After saving .bashrc, do: ```source ~/.bashrc```.
+
+## Setup conda environment and ~/.bashrc
+
+
+
+
+
+# LOCAL SETUP on RTX 3060
+## Changing the file paths
+Change the file paths in full_eval.py, main.py and main_pretraining.py
+```
+    args.data_dir = os.path.expanduser('/ssd2/CS444_project/AI2Thor_offline_data_2.0.2/')
+    args.data_dir = os.path.expanduser('/ssd2/CS444_project/AI2Thor_offline_data_2.0.2/')
+    args.data_dir = os.path.expanduser('/ssd2/CS444_project/AI2Thor_VisTrans_Pretrain_Data/')
+
+
+```
 
 # Errors and their solutions for local setup using RTX 3060
 
