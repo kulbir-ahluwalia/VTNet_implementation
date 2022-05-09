@@ -27,7 +27,7 @@ from full_eval import full_eval
 from runners import a3c_train, a3c_val
 
 os.environ["OMP_NUM_THREADS"] = "1"
-
+os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 
 def main():
     setproctitle.setproctitle("Train/Test Manager")
@@ -92,7 +92,7 @@ def main():
         args.gpu_ids = [-1]
     else:
         torch.cuda.manual_seed(args.seed)
-        mp.set_start_method("spawn")
+
 
     shared_model = create_shared_model(args)
 
@@ -245,4 +245,5 @@ def main():
 
 
 if __name__ == "__main__":
+    mp.set_start_method("spawn")
     main()

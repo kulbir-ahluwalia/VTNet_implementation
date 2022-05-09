@@ -6,3 +6,6 @@ AI2Thor_VisTrans_Pretrain_Data.tar.gz
 
 vtnet_pretrained_checkpoint.pth
 *.pth
+*.dat
+*.ABE-FV4J3G3
+*.txt
