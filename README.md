@@ -18,17 +18,36 @@ python pretraining.py \
 ```
 
 Run the following for training:
+
+If running for the first time you can comment out ```assert args.use_nn_transformer == saved["args"].use_nn_transformer``` in training.py.
+Use the following command for training with an expected RAM usage of 16 GB:
+```
+python  training.py  \                                                                                                                                                                                                         ─╯
+                   --data-dir /ssd2/CS444_project/AI2Thor_offline_data_2.0.2 \
+                   --out-dir /ssd2/CS444_project/training_output \
+                   --workers 2 \
+                   --max-ep 1000 \
+                   --save-every 100 \
+                   --pretrained-vtnet /ssd2/CS444_project/vtnet_pretrained_checkpoint.pth \
+                   --verbose \
+                   --num-workers 2
+
+```
+
+Once you have trained for some epochs,you can load your init model from /training_output: 
 ```
 python  training.py  \
                    --data-dir /ssd2/CS444_project/AI2Thor_offline_data_2.0.2 \
                    --out-dir /ssd2/CS444_project/training_output \
-                   --workers 16 \
+                   --workers 2 \
                    --max-ep 1000 \
-                   --save-every 5 \
+                   --save-every 1000 \
                    --use-nn-transformer \
                    --pretrained-vtnet /ssd2/CS444_project/vtnet_pretrained_checkpoint.pth \
                    --verbose \
                    --init-model INIT_MODEL \
-                   --num-workers 16
+                   --num-workers 2
 
 ```
+
+
