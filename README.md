@@ -50,4 +50,24 @@ python  training.py  \
 
 ```
 
+# Using ACKTR instead of A3C
+
+## Environment setup
+requirements.txt has:
+```
+gym
+matplotlib
+pybullet
+stable-baselines3
+h5py
+```
+
+Setup environment:
+```
+conda create --clone VTNet_test_env --name ACKTR_pytorch_test_env 
+conda activate ACKTR_pytorch_test_env
+pip install -r requirements.txt  
+conda install -c conda-forge gym-atari
+```
+
 
