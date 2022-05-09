@@ -2,3 +2,33 @@
 Implementation of VTNet ([Paper](https://arxiv.org/pdf/2105.09447.pdf)).
 
 The code is largely based on [the original code](https://github.com/xiaobaishu0097/ICLR_VTNet) provided by the author of the paper. A lot of classes are directly picked from the original repository. This repository only supports DETR features. It also provides an option to use `nn.Transformer` in place of the `VisualTransformer` provided with the original code. There is a difference how local and global features are passed to `nn.Transformer` and `VisualTransformer`. Check the code for details.
+
+## Running the code
+Run the following for pretraining:
+```
+python pretraining.py \
+                      --data-dir /ssd2/CS444_project/AI2Thor_VisTrans_Pretrain_Data \
+                      --out-dir /ssd2/CS444_project/pretraining_output \
+                      --batch-size 32 \
+                      --num-workers 16 \
+                      --epochs 30 \
+                      --do-test \
+                      --save-every 5 \
+                      --use-nn-transformer
+```
+
+Run the following for training:
+```
+python  training.py  \
+                   --data-dir /ssd2/CS444_project/AI2Thor_offline_data_2.0.2 \
+                   --out-dir /ssd2/CS444_project/training_output \
+                   --workers 16 \
+                   --max-ep 1000 \
+                   --save-every 5 \
+                   --use-nn-transformer \
+                   --pretrained-vtnet /ssd2/CS444_project/vtnet_pretrained_checkpoint.pth \
+                   --verbose \
+                   --init-model INIT_MODEL \
+                   --num-workers 16
+
+```
