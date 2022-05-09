@@ -3,21 +3,21 @@
 Make the conda environment:
 ```angular2html
 conda create --name VTNet_test_env  python=3.6 
-conda activate VTNet_test_env  
+conda activate VTNet_test_env -y
 
 #install pytorch and other required packages
-conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia    
-conda install -c conda-forge ipywidgets
-conda install ipykernel ipywidgets matplotlib 
-conda install -c conda-forge setproctitle
-conda install -c anaconda numpy
+conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c nvidia -y
+conda install -c conda-forge ipywidgets -y
+conda install ipykernel ipywidgets matplotlib -y
+conda install -c conda-forge setproctitle -y
+conda install -c anaconda numpy -y
 
 
 
 
 python3 -m pip install --upgrade --user urllib3==1.25.9
 python3 -m pip install --upgrade --user pillow==6.2.0 
-conda install -c anaconda scikit-learn
+conda install -c anaconda scikit-learn -y
 pip install opencv-python urllib3 
 
 #the following command resolves some errors
