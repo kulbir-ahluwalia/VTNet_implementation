@@ -72,7 +72,7 @@ For local setup on RTX 3060:
 
 We have to mention the {path to the saved model directory} and the path where we want the result.json to be saved.
 ```
-python full_eval.py --gpu-ids 0 --detr --save-model-dir /ssd2/VTNet_implementation/work_dirs/a3c_vtnet_train_2022-04-12_13-11-25/trained_models/  --results-json /ssd2/VTNet_implementation/work_dirs/a3c_vtnet_train_2022-04-12_13-11-25/trained_models/result.json --model VTNetModel --title a3c_vtnet --batch-size 1
+python full_eval.py --gpu-ids 0 --workers 1 --detr --save-model-dir /ssd2/VTNet_implementation/work_dirs/a3c_vtnet_train_2022-04-12_13-11-25/trained_models/  --results-json /ssd2/VTNet_implementation/work_dirs/a3c_vtnet_train_2022-04-12_13-11-25/trained_models/result.json --model VTNetModel --title a3c_vtnet --batch-size 1
 
 ```
 Since the dataset is about 80GB in size, it is recommended to download it on a external storage disk and then extract it on local machine using CLI. GUI hangs most of the time due to the sheer size of the dataset and you can get "no space left on device error" even if there is space left.

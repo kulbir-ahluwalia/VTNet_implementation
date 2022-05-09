@@ -1,0 +1,17 @@
+#!/bin/sh
+#PBS -M ksa5@illinois.edu
+#PBS -N vtnet_eval
+#PBS -l walltime=12:00:00
+#PBS -l nodes=1
+#PBS -m a
+#PBS -q eng-research-gpu
+#SBATCH --gres gpu:V100
+
+ROOT_DIR=/home/ksa5
+PROJ_DIR=VTNet_implementation
+
+# python $ROOT_DIR/$PROJ_DIR/main_pretraining.py --gpu-ids 0 --workers 32 --model PreTrainedVisualTransformer --detr --title a3c --work-dir $ROOT_DIR/$PROJ_DIR/work_dirs/ --load-model $ROOT_DIR/$PROJ_DIR/work_dirs/pretrain_vistrans_train_2022-04-09_00-18-11/trained_models/checkpoint.pth
+
+# python $ROOT_DIR/$PROJ_DIR/main.py --gpu-ids 0 --workers 4 --model VTNetModel --detr --title a3c_vtnet --work-dir $ROOT_DIR/$PROJ_DIR/work_dirs_main_alt/ --pretrained-trans $ROOT_DIR/$PROJ_DIR/data/pretrained_model.pth --test-speed --ep-save-freq 10000
+
+cd $ROOT_DIR/$PROJ_DIR; python full_eval.py --gpu-ids 0 --detr --save-model-dir $ROOT_DIR/$PROJ_DIR/work_dirs_main_alt/a3c_vtnet_train_2022-04-11_21-48-56/trained_models/  --results-json $ROOT_DIR/$PROJ_DIR/work_dirs_main_alt/a3c_vtnet_train_2022-04-11_21-48-56/trained_models/result.json --model VTNetModel --title a3c_vtnet

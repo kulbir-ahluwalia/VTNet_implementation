@@ -11,9 +11,9 @@ Jinja2==2.10
 MarkupSafe==1.1.1
 networkx==2.2
 numpy==1.16.2
-Pillow==5.4.1
+Pillow==6.2.0
 progressbar2==3.39.3
-protobuf==3.7.0
+protobuf==3.8.0
 python-utils==2.3.0
 PyYAML==5.1
 requests==2.21.0
@@ -22,9 +22,9 @@ setproctitle==1.1.10
 six==1.12.0
 tabulate==0.8.3
 torch==1.10.2
-torchvision==0.11.2
+torchvision==0.11.3
 torchaudio==0.10.2+cu113
 tensorboardX==2.5.0
 tqdm==4.31.1
-urllib3==1.24.2
+urllib3==1.25.9
 Werkzeug==0.15.3
