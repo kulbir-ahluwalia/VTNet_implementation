@@ -93,6 +93,8 @@ def make_vec_envs(env_name,
         for i in range(num_processes)
     ]
 
+    print("envs list = no. of processes =", envs)
+
     if len(envs) > 1:
         envs = SubprocVecEnv(envs)
     else:

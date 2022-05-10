@@ -37,10 +37,14 @@ def main():
     envs = make_vec_envs(args.env_name, args.seed, args.num_processes,
                          args.gamma, args.log_dir, device, False)
 
+    # actions_list = envs[0].unwrapped.get_action_meanings()
+    # print("the list of actions is: ", actions_list)
+
     actor_critic = Policy(
         envs.observation_space.shape,
         envs.action_space,
         base_kwargs={'recurrent': False})
+
     actor_critic.to(device)
 
 
