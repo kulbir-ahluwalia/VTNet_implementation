@@ -31,11 +31,7 @@ class Policy(nn.Module):
             num_outputs = action_space.n
             print("number of actions is: ",num_outputs)
 
-            actions = action_space
-            print("actions are: ", actions, "n_actions are: ", action_space.n )
-            print(" env.action_space.sample() is: ", action_space.n.sample())
-
-
+            # actions = action_space
 
             self.dist = Categorical(self.base.output_size, num_outputs)
         elif action_space.__class__.__name__ == "Box":

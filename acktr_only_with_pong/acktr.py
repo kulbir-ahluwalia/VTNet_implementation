@@ -25,7 +25,6 @@ from evaluation import evaluate
 
 def main():
 
-
     log_dir = os.path.expanduser(args.log_dir)
     eval_log_dir = log_dir + "_eval"
     utils.cleanup_log_dir(log_dir)
@@ -34,16 +33,52 @@ def main():
     torch.set_num_threads(1)
     device = torch.device("cuda:0" if args.cuda else "cpu")
 
+    # make_vec_envs(env_name,
+    #               seed,
+    #               num_processes,
+    #               gamma,
+    #               log_dir,
+    #               device,
+    #               allow_early_resets,
+    #               num_frame_stack=None):
+    # envs = [
+    #     make_env(env_name, seed, i, log_dir, allow_early_resets)
+    #     for i in range(num_processes)
+    # ]
+
+
     envs = make_vec_envs(args.env_name, args.seed, args.num_processes,
                          args.gamma, args.log_dir, device, False)
 
-    # actions_list = envs[0].unwrapped.get_action_meanings()
-    # print("the list of actions is: ", actions_list)
+    print("envs list = no. of processes =", envs)
+
+
+
+
+
+
+    # def __init__(self, obs_shape, action_space, base=None, base_kwargs=None)
 
     actor_critic = Policy(
         envs.observation_space.shape,
         envs.action_space,
         base_kwargs={'recurrent': False})
+
+    num_outputs = envs.action_space.n
+    print("number of actions is: ", num_outputs)
+
+    print("actions are: ", envs.action_space, "n_actions are: ", envs.action_space.n )
+    print(" env.action_space.sample() is: ", envs.action_space.sample()) # take a random action
+
+    # actions_list = envs.unwrapped.get_action_meanings()
+
+    # print("the list of actions is: ", actions_list)
+
+    # print(envs.envs.get_action_meanings())
+
+    x = [env for env in envs]
+    print("env in envs is: ", x)
+
 
     actor_critic.to(device)
 
@@ -77,7 +112,7 @@ def main():
                     rollouts.obs[step], rollouts.recurrent_hidden_states[step],
                     rollouts.masks[step])
 
-            # Obser reward and next obs
+            # Observation reward and next observation
             obs, reward, done, infos = envs.step(action)
 
             for info in infos:
