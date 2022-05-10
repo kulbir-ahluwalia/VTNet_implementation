@@ -71,4 +71,9 @@ pip install -r requirements.txt
 conda install -c conda-forge gym-atari
 ```
 
+Running the acktr.py only model on Pong:
+```
+ python acktr.py --env-name "PongNoFrameskip-v4" --num-processes 1 --num-steps 20 --save-dir ./trained_models/   
+```
+
 
