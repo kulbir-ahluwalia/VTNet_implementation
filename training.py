@@ -40,7 +40,7 @@ def main(args):
 
     if args.pretrained_vtnet is not None:
         saved = torch.load(args.pretrained_vtnet, map_location=device)
-        assert args.use_nn_transformer == saved["args"].use_nn_transformer
+        # assert args.use_nn_transformer == saved["args"].use_nn_transformer
         model_dict = model.state_dict()
         pretrained_dict = {
             k: v for k, v in saved['model'].items() if (k in model_dict and v.shape == model_dict[k].shape)
