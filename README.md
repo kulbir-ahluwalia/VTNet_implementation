@@ -69,6 +69,7 @@ conda create --clone VTNet_test_env --name ACKTR_pytorch_test_env
 conda activate ACKTR_pytorch_test_env
 pip install -r requirements.txt  
 conda install -c conda-forge gym-atari
+pip install opencv-python urllib3 
 ```
 
 Running the acktr.py only model on Pong:
