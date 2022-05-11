@@ -83,11 +83,19 @@ tar -xvf /media/kulbir/SSD_storage/CS444_project_ssd/AI2Thor_VisTrans_Pretrain_D
 ```
 
 
-
-
-
-
 # REMOTE SETUP ON UIUC CAMPUS CLUSTER
+## Using SSH
+
+We use the following format to login to the head node:
+```
+ssh -X -l netid cc-login.campuscluster.illinois.edu   
+```
+
+Submit the job on the campus cluster using the following command:
+```
+qsub campus_cluster_script.pbs
+```
+
 Transfer the files from your local computer to the campus cluster scratch directory using scp:
 ```
 scp /ssd2/VTNet_implementation/AI2Thor_offline_data_2.0.2.tar.gz ksa5@cc-login.campuscluster.illinois.edu:/home/ksa5/scratch/VTNet_data 
@@ -236,22 +244,10 @@ floor_division = torch.div(dim_t, 2, rounding_mode='floor')
 dim_t = 10000 ** (2 * (floor_division) / c_pos_embedding)
 ```
     
-# Using the campus cluster
-
-## Using SSH
-We use the following format to login to the head node:
-```
-ssh -X -l netid cc-login.campuscluster.illinois.edu   
-```
-Submit the job on the campus cluster using the following command:
-```
-qsub campus_cluster_script.pbs
-```
-
 
 ## Citation
 
-If you find our work useful in your research, please consider citing:
+Original VTNet paper citation:
 ```
 @inproceedings{
     du2021vtnet,
