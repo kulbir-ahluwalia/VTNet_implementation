@@ -60,6 +60,8 @@ def a3c_val(
             total_reward = run_episode(player, args, total_reward, model_options, False, model)
             # Compute the loss.
             # loss = compute_loss(args, player, gpu_id, model_options)
+
+            # time.sleep(2)
             if not player.done:
                 reset_player(player)
 
