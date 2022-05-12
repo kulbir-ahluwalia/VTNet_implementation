@@ -85,7 +85,7 @@ def full_eval(args):
 
 if __name__ == "__main__":
     torch.multiprocessing.set_start_method("spawn")
-    parser = argparse.ArgumentParser(description="VTNet training.")
+    parser = argparse.ArgumentParser(description="VTNet evaluation script.")
     parser.add_argument("--data-dir", type=str, required=True, dest="data_dir", help="Data directory of val/test data")
     parser.add_argument("--saved-model-dir", type=str, required=True, dest="saved_model_dir", help="Saved model directory")
     parser.add_argument("--num-workers", type=int, required=False, dest="num_workers", help="Number of workers", default=4)
