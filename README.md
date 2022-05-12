@@ -53,8 +53,8 @@ python  training.py  \
 Run the following for evaluation:
 ```
 python eval.py \
-                --data-dir /ssd2/CS444_project/AI2Thor_offline_data_2.0.2 \ 
-                --saved-model-dir /ssd2/VTNet_implementation/best_training_output/with_nn_transformr/a3c_vtnet_568847_43000_2022-05-07_21-22-32.dat
+                --data-dir /ssd2/CS444_project/AI2Thor_offline_data_2.0.2 \   
+                --saved-model-dir /ssd2/VTNet_implementation/best_training_output/with_nn_transformr/                                                                     --num-workers 1
 
 ```
 
