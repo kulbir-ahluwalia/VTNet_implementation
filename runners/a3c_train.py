@@ -1,7 +1,7 @@
 import time
-from agents.navigation_agent import NavigationAgent
 import torch
 
+from agents.navigation_agent import NavigationAgent
 from data.data import num_to_name
 from models.model_io import ModelOptions
 
