@@ -1,0 +1,92 @@
+Terminal command:
+python  training.py  \                                                                                                                                                                                                                                    ─╯
+                   --data-dir /ssd2/CS444_project/AI2Thor_offline_data_2.0.2 \
+                   --out-dir /ssd2/CS444_project/training_output \
+                   --workers 1 \
+                   --max-ep 43001  \
+                   --save-every 10 \
+                   --use-nn-transformer \
+                   --pretrained-vtnet /ssd2/VTNet_implementation/pretraining_output/checkpoint-10.pth \
+                   --verbose \
+                   --init-model /ssd2/VTNet_implementation/best_training_output/with_nn_transformr/a3c_vtnet_568847_43000_2022-05-07_21-22-32.dat \
+                   --num-workers 1
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Terminal output:
+
+Using nn.Transformer
+Train agents created.
+Using nn.Transformer
+Found path: /home/kulbir/.ai2thor/releases/thor-201903131714-Linux64/thor-201903131714-Linux64
+Mono path[0] = '/home/kulbir/.ai2thor/releases/thor-201903131714-Linux64/thor-201903131714-Linux64_Data/Managed'
+Mono config path = '/home/kulbir/.ai2thor/releases/thor-201903131714-Linux64/thor-201903131714-Linux64_Data/Mono/etc'
+Preloaded 'ScreenSelector.so'
+Display 0 '0': 1920x1080 (primary device).
+Loading player data from /home/kulbir/.ai2thor/releases/thor-201903131714-Linux64/thor-201903131714-Linux64_Data/data.unity3d
+Logging to /home/kulbir/.config/unity3d/Allen Institute for Artificial Intelligence/AI2-Thor/Player.log
+Scene FloorPlan8 Navigating towards: Kettle
+action passed to controller.step is: {'action': 'LookDown'}
+{'action': 'LookDown'}
+action passed to controller.step is: {'action': 'LookDown'}
+{'action': 'LookDown'}
+action passed to controller.step is: {'action': 'RotateRight'}
+{'action': 'RotateRight'}
+action passed to controller.step is: {'action': 'LookDown'}
+{'action': 'LookDown'}
+action passed to controller.step is: {'action': 'RotateRight'}
+{'action': 'RotateRight'}
+action passed to controller.step is: {'action': 'RotateRight'}
+{'action': 'RotateRight'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+{'action': 'Done'}
+11.326575756072998 s/ep
+Scene FloorPlan309 Navigating towards: Television
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+action passed to controller.step is: {'action': 'LookDown'}
+{'action': 'LookDown'}
+action passed to controller.step is: {'action': 'LookDown'}
+{'action': 'LookDown'}
+action passed to controller.step is: {'action': 'LookDown'}
+{'action': 'LookDown'}
+action passed to controller.step is: {'action': 'RotateRight'}
+{'action': 'RotateRight'}
+action passed to controller.step is: {'action': 'RotateRight'}
+{'action': 'RotateRight'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+action passed to controller.step is: {'action': 'LookUp'}
+{'action': 'LookUp'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+action passed to controller.step is: {'action': 'MoveAhead'}
+{'action': 'MoveAhead'}
+{'action': 'Done'}

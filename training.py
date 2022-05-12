@@ -127,6 +127,8 @@ def main(args):
                 print('{} s/ep'.format(time.time() - start_time))
                 start_time = time.time()
 
+            # break
+
     finally:
         end_flag.value = True
         for p in processes:
