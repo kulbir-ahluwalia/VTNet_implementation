@@ -157,7 +157,21 @@ tar -xvf /media/kulbir/SSD_storage/CS444_project_ssd/AI2Thor_offline_data_2.0.2_
 tar -xvf /media/kulbir/SSD_storage/CS444_project_ssd/AI2Thor_VisTrans_Pretrain_Data.tar.gz -C /ssd2/CS444_project 
 ```
 
+
+
 # REMOTE SETUP ON UIUC CAMPUS CLUSTER
+## Using SSH
+
+We use the following format to login to the head node:
+```
+ssh -X -l netid cc-login.campuscluster.illinois.edu   
+```
+
+Submit the job on the campus cluster using the following command:
+```
+qsub campus_cluster_script.pbs
+```
+
 Transfer the files from your local computer to the campus cluster scratch directory using scp:
 ```
 scp /ssd2/VTNet_implementation/AI2Thor_offline_data_2.0.2.tar.gz ksa5@cc-login.campuscluster.illinois.edu:/home/ksa5/scratch/VTNet_data 
@@ -165,10 +179,6 @@ scp /ssd2/VTNet_implementation/AI2Thor_offline_data_2.0.2.tar.gz ksa5@cc-login.c
 scp /ssd2/VTNet_implementation/AI2Thor_offline_data_2.0.2_detr_features.tar.gz ksa5@cc-login.campuscluster.illinois.edu:/home/ksa5/scratch/VTNet_data 
 
 scp /ssd2/VTNet_implementation/AI2Thor_VisTrans_Pretrain_Data.tar.gz ksa5@cc-login.campuscluster.illinois.edu:/home/ksa5/scratch/VTNet_data 
-
-#transfer the pretrained weights file to remote repo on cluster:
-scp /ssd2/VTNet_implementation/vtnet_pretrained_checkpoint.pth ksa5@cc-login.campuscluster.illinois.edu:/home/ksa5/VTNet_implementation
-
 ```
 Extract the files:
 -x = extract, -v = display the extracted file in terminal, Use the --directory (-C) to extract archive files in a specific directory
@@ -186,6 +196,7 @@ Change the file paths in full_eval.py, main.py and main_pretraining.py
     args.data_dir = os.path.expanduser('/home/ksa5/scratch/VTNet_data/AI2Thor_offline_data_2.0.2/')
     args.data_dir = os.path.expanduser('/home/ksa5/scratch/VTNet_data/AI2Thor_VisTrans_Pretrain_Data/')
 ```
+
 
 ## Using vim
 Using vim:
@@ -208,16 +219,6 @@ conda activate VTNet_test_env
 
 ```
 After saving .bashrc, do: ```source ~/.bashrc```.
-
-## Using SSH
-We use the following format to login to the head node:
-```
-ssh -X -l netid cc-login.campuscluster.illinois.edu   
-```
-Submit the job on the campus cluster using the following command:
-```
-qsub campus_cluster_script.pbs
-```
 
 
 # LOCAL SETUP on RTX 3060
@@ -338,4 +339,16 @@ Running the acktr.py only model on Pong:
 ```
  python acktr.py --env-name "PongNoFrameskip-v4" --num-processes 1 --num-steps 20 --save-dir ./trained_models/   
 ```
+## Citation
 
+Original VTNet paper citation:
+```
+@inproceedings{
+    du2021vtnet,
+    title={{\{}VTN{\}}et: Visual Transformer Network for Object Goal Navigation},
+    author={Heming Du and Xin Yu and Liang Zheng},
+    booktitle={International Conference on Learning Representations},
+    year={2021},
+    url={https://openreview.net/forum?id=DILxQP08O3B}
+}
+```
