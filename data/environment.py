@@ -4,6 +4,10 @@ import copy
 import json
 import os
 import random
+from PIL import Image
+import cv2
+import numpy as np
+
 from .offline_controller_with_small_rotation import OfflineControllerWithSmallRotation
 
 
@@ -42,6 +46,15 @@ class Environment:
         self.start_state = None
         self.last_action = None
         self.fov = fov
+
+        # if self.controller.last_event.frame is not None:
+
+            # print(f"numpy image is: {self.controller.last_event.frame.shape}")
+            # numpy_image = self.controller.last_event.frame[0]
+            #
+            # # im = Image.fromarray(numpy_image)
+            # im = Image.fromarray(numpy_image).resize((256, 256), Image.LANCZOS)
+            # im.save("filename.jpeg")
 
     @property
     def scene_name(self):
@@ -85,6 +98,30 @@ class Environment:
             dict(action="Initialize", gridSize=self.grid_size, fieldOfView=self.fov)
         )
 
+        # print(f"numpy image is: {self.controller.last_event.frame.shape}")
+        # numpy_image = self.controller.last_event.frame
+        # print(f"numpy_image is: ", numpy_image)
+        #
+        # # im = Image.fromarray(numpy_image)
+        # numpy_image = (numpy_image*255).astype(np.uint8)
+        # print("numpy_image: ", numpy_image, "shape: ",numpy_image.shape)
+        #
+        # # np_img_squeezed = np.squeeze(numpy_image)
+        # # np_img_squeezed = numpy_image.resize((256, 256), Image.LANCZOS)
+        # np_img_squeezed = numpy_image.resize((256, 256))
+        # print("np_img_squeezed: ", np_img_squeezed, "shape: ", np_img_squeezed.shape)
+        #
+        #
+        # # image = Image.fromarray(np_img_squeezed[0])
+        # image = Image.fromarray(np_img_squeezed[0])
+        #
+        #
+        #
+        # # im = numpy_image_rescaled.resize((256, 256), Image.LANCZOS)
+        #
+        # # np_img_squeezed = np.squeeze(numpy_image_rescaled, axis=2)
+        # image.save("filename.jpeg")
+
     def all_objects(self):
         if not self.use_offline_controller:
             objects = self.controller.last_event.metadata["objects"]
@@ -93,6 +130,10 @@ class Environment:
 
     def step(self, action_dict):
         print(f"action passed to controller.step is: {action_dict}")
+
+
+        # cv2.imwrite("filename", cv2frame)
+
         return self.controller.step(action_dict)
 
     def teleport_agent_to(self, x, y, z, rotation, horizon):
