@@ -20,9 +20,6 @@ from a2c_ppo_acktr.storage import RolloutStorage
 from evaluation import evaluate
 
 
-
-
-
 def main():
 
     log_dir = os.path.expanduser(args.log_dir)
@@ -76,8 +73,8 @@ def main():
 
     # print(envs.envs.get_action_meanings())
 
-    x = [env for env in envs]
-    print("env in envs is: ", x)
+    # x = [env for env in envs]
+    # print("env in envs is: ", x)
 
 
     actor_critic.to(device)

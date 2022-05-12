@@ -196,7 +196,11 @@ class VTNet(nn.Module):
         )
 
         # pretraining network action predictor, should be used in Visual Transformer model
+        # self.lstm_input_sz = 3200
+        # self.hidden_state_sz = 512
         self.hidden_state_sz = self.hidden_state_sz
+
+        # Number of recurrent layers = 2
 
         self.lstm = nn.LSTM(self.lstm_input_sz, self.hidden_state_sz, 2)
 
@@ -233,14 +237,50 @@ class VTNet(nn.Module):
 
         return out, image_embedding
 
+    # self.hidden_state_sz = 512
+    # self.lstm_input_sz = 3200
+    # self.action_space = 6
+
+    # self.lstm = nn.LSTM(self.lstm_input_sz, self.hidden_state_sz, 2)
+
+    # self.actor_linear = nn.Linear(self. = 512, self.action_space = 6)
+
+
+
+    #
+    #
+
+
+    # prev hidden state = h (t-1)
+    # previousw cell state = c (t-1)
     def a3clstm(self, embedding, prev_hidden_h, prev_hidden_c):
         embedding = embedding.reshape([1, 1, self.lstm_input_sz])
+
+        # give output of LSTM to actor critic
+        # how is the following line working??
+
+        # output shape is: torch.Size([1, 1, 512])
+        # hx shape is: torch.Size([2, 1, 512])
+        # cx shape is: torch.Size([2, 1, 512])
         output, (hx, cx) = self.lstm(embedding, (prev_hidden_h, prev_hidden_c))
         x = output.reshape([1, self.hidden_state_sz])
+        # print(f"output is: {output} and output shape is: {output.shape}")
+        # print(f"hx is: {hx} and hx shape is: {hx.shape}")
+        # print(f"cx is: {cx} and cx shape is: {cx.shape}")
 
         actor_out = self.actor_linear(x)
+        # print(f"actor out is {actor_out} and shape is {actor_out.shape}")
+
+        # self.critic_linear_1 = nn.Linear(self.hidden_state_sz = 512 , 64)
         critic_out = self.critic_linear_1(x)
+        # shape is torch.Size([1, 64])
+        # print(f" first critic_out is {critic_out} and shape is {critic_out.shape}")
+
+        # critic_out is a single value
+        # self.critic_linear_2 = nn.Linear(64, 1)
         critic_out = self.critic_linear_2(critic_out)
+        #  shape is torch.Size([1, 1])
+        # print(f" second critic_out is {critic_out} and shape is {critic_out.shape}")
 
         return actor_out, critic_out, (hx, cx)
 

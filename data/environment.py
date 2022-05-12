@@ -33,7 +33,7 @@ class Environment:
             detection_feature_file_name=detection_feature_file_name,
             images_file_name=images_file_name,
             metadata_file_name=visible_object_map_file_name,
-            visualize=False,
+            visualize=True,
             local_executable_path=local_executable_path,
             optimal_action_file_name=optimal_action_file_name,
         )
@@ -92,6 +92,7 @@ class Environment:
         return self.controller.all_objects()
 
     def step(self, action_dict):
+        print(f"action passed to controller.step is: {action_dict}")
         return self.controller.step(action_dict)
 
     def teleport_agent_to(self, x, y, z, rotation, horizon):

@@ -116,7 +116,7 @@ def make_vec_envs(env_name,
     return envs
 
 
-# Checks whether done was caused my timit limits or not
+# Checks whether done was caused my time limits or not
 class TimeLimitMask(gym.Wrapper):
     def step(self, action):
         obs, rew, done, info = self.env.step(action)

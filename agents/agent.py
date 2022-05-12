@@ -106,7 +106,8 @@ class ThorAgent:
     def print_info(self):
         """ Print the actions. """
         for action in self.actions:
-            print(action)
+            print(f"self.actions: {self.actions}")
+            print(f"action is: {action}")
 
     @model.setter
     def model(self, model_to_set):
@@ -168,9 +169,6 @@ class ThorAgent:
         # if str(self.episode.environment.controller.state) in self.episode.states[:-num_]:
         #     action = F.softmax(out.meta_action + 0.3*out.logit, dim=1).argmax(dim=1, keepdim=True)
         #     # action = act_action + action
-
-
-
 
 
         log_prob = F.log_softmax(out.logit, dim=1)
