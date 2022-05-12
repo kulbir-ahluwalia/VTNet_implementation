@@ -72,7 +72,7 @@ conda install scikit-learn-intelex -y
 pip install opencv-python urllib3 
 
 #the following command resolves some errors
-pip install -U torch #??
+pip install -U torch 
 pip install --upgrade protobuf
 
 ```
