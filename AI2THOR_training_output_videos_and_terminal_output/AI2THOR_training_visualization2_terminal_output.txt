@@ -25,6 +25,8 @@ Preloaded 'ScreenSelector.so'
 Display 0 '0': 1920x1080 (primary device).
 Loading player data from /home/kulbir/.ai2thor/releases/thor-201903131714-Linux64/thor-201903131714-Linux64_Data/data.unity3d
 Logging to /home/kulbir/.config/unity3d/Allen Institute for Artificial Intelligence/AI2-Thor/Player.log
+
+
 Scene FloorPlan8 Navigating towards: Kettle
 action passed to controller.step is: {'action': 'LookDown'}
 {'action': 'LookDown'}
@@ -52,6 +54,8 @@ action passed to controller.step is: {'action': 'MoveAhead'}
 {'action': 'MoveAhead'}
 {'action': 'Done'}
 11.326575756072998 s/ep
+
+
 Scene FloorPlan309 Navigating towards: Television
 action passed to controller.step is: {'action': 'MoveAhead'}
 {'action': 'MoveAhead'}
